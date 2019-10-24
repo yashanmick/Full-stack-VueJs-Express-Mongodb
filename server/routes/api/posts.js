@@ -18,8 +18,9 @@ router.post('/', async (req, res) => {
     });
 });
 
+
 //delete
-router.delete('/:id', async (req,res) => {
+router.delete('/id', async (req,res) => {
     const posts = await loadPostCollection();
     await posts.deleteOne({_id: new mongodb.ObjectID(req.params.id) });
     res.status(200).send();
@@ -28,8 +29,8 @@ router.delete('/:id', async (req,res) => {
 
 async function loadPostCollection() {
     const client = await mongodb.MongoClient.connect
-    ('mongodb+srv://yashan:123@cluster0-owwih.gcp.mongodb.net/test?retryWrites=true&w=majority', {
-        useNewUrlParser: true,
+    ('mongodb+srv://yashan:123@cluster0-fjsce.mongodb.net/test?retryWrites=true&w=majority', {
+        useNewUrlParser: true
         //useUnifiedTopology: true 
     });
     return client.db('vue_express').collection('posts');
