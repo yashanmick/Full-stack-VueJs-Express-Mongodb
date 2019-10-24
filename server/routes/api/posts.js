@@ -29,7 +29,8 @@ router.delete('/:id', async (req,res) => {
 async function loadPostCollection() {
     const client = await mongodb.MongoClient.connect
     ('mongodb+srv://yashan:123@cluster0-owwih.gcp.mongodb.net/test?retryWrites=true&w=majority', {
-        useNewUrlParser: true
+        useNewUrlParser: true,
+        //useUnifiedTopology: true 
     });
     return client.db('vue_express').collection('posts');
 }
